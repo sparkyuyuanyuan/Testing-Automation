@@ -134,48 +134,65 @@ lNameEntry.grid(row=8, pady=3)
 
 
 def enableEntry():
-    print('entry enabled')
     global userEmail, userPassword, fName, lName, emailLabel, emailEntry, passEntry, passLabel, fNameEntry, fNameLabel, lNameEntry, lNameLabel
-    if (chkVal.get() == 0):
-        print(chkVal.get())
-        emailLabel = tkinter.Label(secondFrame, text="Email", state='normal')
-        emailEntry = tkinter.Entry(
-            secondFrame, textvariable=userEmail, state='normal')
-        passLabel = tkinter.Label(secondFrame, text="Password", state='normal')
-        passEntry = tkinter.Entry(
-            secondFrame, textvariable=userPassword, state='normal')
-        fNameLabel = tkinter.Label(
-            secondFrame, text='First Name', state='normal')
-        fNameEntry = tkinter.Entry(
-            secondFrame, textvariable=fName, state='normal')
-        lNameLabel = tkinter.Label(
-            secondFrame, text='Last Name', state='normal')
-        lNameEntry = tkinter.Entry(
-            secondFrame, textvariable=lName, state='normal')
     if (chkVal.get() == 1):
         print(chkVal.get())
-        emailLabel = tkinter.Label(
-            secondFrame, text='Email TEST', state='disabled')
+        print("entry enabled")
+        emailLabel = tkinter.Label(secondFrame, text="Email", state='normal')
+        emailLabel.grid(row=1, pady=3)
         emailEntry = tkinter.Entry(
-            secondFrame, textvariable=userEmail, state='disabled')
+            secondFrame, textvariable=userEmail, state='normal')
+        emailEntry.grid(row=2, pady=3)
+        passLabel = tkinter.Label(secondFrame, text="Password", state='normal')
+        passLabel.grid(row=3, pady=3)
+        passEntry = tkinter.Entry(
+            secondFrame, textvariable=userPassword, state='normal')
+        passEntry.grid(row=4, pady=3)
+        fNameLabel = tkinter.Label(
+            secondFrame, text='First Name', state='normal')
+        fNameLabel.grid(row=5, pady=3)
+        fNameEntry = tkinter.Entry(
+            secondFrame, textvariable=fName, state='normal')
+        fNameEntry.grid(row=6, pady=3)
+        lNameLabel = tkinter.Label(
+            secondFrame, text='Last Name', state='normal')
+        lNameLabel.grid(row=7, pady=3)
+        lNameEntry = tkinter.Entry(
+            secondFrame, textvariable=lName, state='normal')
+        lNameEntry.grid(row=8, pady=3)
+    if (chkVal.get() == 0):
+        print(chkVal.get())
+        print("entry disabled")
+        emailLabel = tkinter.Label(
+            secondFrame, text='Email', state='disabled')
+        emailLabel.grid(row=1, pady=3)
+        emailEntry = tkinter.Entry(
+            secondFrame, textvariable=userEmail, state='normal')
+        emailEntry.grid(row=2, pady=3)
         passLabel = tkinter.Label(
             secondFrame, text='Password', state='disabled')
+        passLabel.grid(row=3, pady=3)
         passEntry = tkinter.Entry(
             secondFrame, textvariable=userPassword, state='disabled')
+        passEntry.grid(row=4, pady=3)
         fNameLabel = tkinter.Label(
             secondFrame, text='First Name', state='disabled')
+        fNameLabel.grid(row=5, pady=3)
         fNameEntry = tkinter.Entry(
             secondFrame, textvariable=fName, state='disabled')
+        fNameEntry.grid(row=6, pady=3)
         lNameLabel = tkinter.Label(
             secondFrame, text='Last Name', state='disabled')
+        lNameLabel.grid(row=7, pady=3)
         lNameEntry = tkinter.Entry(
             secondFrame, textvariable=lName, state='disabled')
+        lNameEntry.grid(row=8, pady=3)
 
 
 # Checkbutton allowing editing of Email/pass/name fields.
 chkVal = tkinter.IntVar()
-tkinter.Checkbutton(secondFrame, text='User Set Value', command=enableEntry,
-                    variable=chkVal, onvalue=0, offvalue=1, pady=5).grid(row=0, columnspan=2)
+tkinter.ttk.Checkbutton(secondFrame, text='User Set Value', command=enableEntry,
+                        variable=chkVal, onvalue=1, offvalue=0).grid(row=0, columnspan=2)
 
 # Main Button
 runBtn = tkinter.Button(runFrame, text='Test Login', command=loginFunction)
